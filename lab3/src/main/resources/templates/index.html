@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MES Vasant Joshi College of Arts and Commerce Exam</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .container {
+            width: 100%;
+            max-width: 800px;
+            margin: auto;
+        }
+        .exam-info {
+            margin-bottom: 20px;
+        }
+        .section {
+            margin-bottom: 40px;
+        }
+        .section h2 {
+            color: #333;
+        }
+        .steps {
+            list-style-type: none;
+            padding: 0;
+        }
+        .steps li {
+            margin-bottom: 10px;
+            background-color: #f0f0f0;
+            padding: 10px;
+            border-radius: 5px;
+        }
+        .hidden { display: none; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="exam-info">
+            <h1>MES Vasant Joshi College of Arts and Commerce, Zuarinagar</h1>
+            <p><strong>Marks:</strong> 10</p>
+            <p><strong>Duration:</strong> 1 hour</p>
+        </div>
+
+        <div class="section hidden" id="set1">
+            <h2>Set 1. GitHub [10 Marks]</h2>
+            <ol class="steps">
+                <li>Fork and clone the repository mparsekar/CaseToolExam24</li>
+                <li>Create a folder in the repository by your roll number eg. BCA22****</li>
+                <li>Write a code of your choice in this folder</li>
+                <li>Stage and commit the code</li>
+                <li>Request for pull request</li>
+            </ol>
+        </div>
+
+        <div class="section hidden" id="set2">
+            <h2>Set 2. Unit Testing [10 Marks]</h2>
+            <ol class="steps">
+                <li>Fork and Clone / Clone the repository mparsekar/CaseToolExam24</li>
+                <li>Open the folder UnitTesting in VScode or editor of your choice</li>
+                <li>Create a folder in the test folder by your roll number eg. BCA22****</li>
+                <li>Write a unit test for the function written in Class IsaExam (Instruction given the comments of code)</li>
+                <li>Commit the code/Show the final output in case it's only cloned</li>
+            </ol>
+        </div>
+    </div>
+</body>
+<script>
+    // Function to show a set based on the value (1 for Set 1, 2 for Set 2)
+    function showSet(setNumber) {
+        if (setNumber === 1) {
+            document.getElementById('set1').classList.remove('hidden');
+        } else if (setNumber === 2) {
+            document.getElementById('set2').classList.remove('hidden');
+        }
+    }
+    
+    // Check localStorage for a saved set
+    const savedSet = localStorage.getItem('examSet');
+    
+    if (savedSet) {
+        // If there's a saved set, show it
+        showSet(parseInt(savedSet, 10));
+    } else {
+        // If not, randomly choose a set, show it, and save the choice
+        const randomSet = Math.floor(Math.random() * 2) + 1; // This will be 1 or 2
+        showSet(randomSet);
+        localStorage.setItem('examSet', randomSet.toString());
+    }
+    </script>
+</html>
